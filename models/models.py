@@ -58,8 +58,7 @@ class unet2d(nn.Module):
         self.inCh = inCh
     
     def encoder(self,x_in):
-        b = x_in.shape[0]
-        x_in = x_in.view(b,self.inCh,self.h,self.w)
+        
         ### Unet Encoder
         x = []
         
@@ -94,4 +93,5 @@ class unet2d(nn.Module):
         # Outputs for MSE
         xHat = torch.sigmoid(self.decoder(x_enc))
 
-        return xHat.view(b,-1)
+        return xHat
+
