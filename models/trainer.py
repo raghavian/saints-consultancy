@@ -28,8 +28,9 @@ class CXRDataset(Dataset):
 #### Training and validation loop!
 from IPython.display import clear_output
 
-def train_model(model, train_loader, valid_loader, criterion, optimizer, max_epochs=10):
+def train_model(model, train_loader, valid_loader, lr=5e-2, max_epochs=10):
   criterion = nn.BCELoss() ############ Loss function to be optimized.
+  optimizer = torch.optim.SGD(model.parameters(),lr=5e-2) #### Which optimizer do you want to use?
   trLoss = []
   trAcc = []
   vlLoss = []
