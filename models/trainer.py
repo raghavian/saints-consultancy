@@ -4,6 +4,7 @@ import torch
 import torch.nn as nn
 from torchvision.utils import save_image,make_grid
 from torch.utils.data import Dataset, DataLoader
+import matplotlib.pyplot as plt
 
 class CXRDataset(Dataset):
     def __init__(self,data,target,normalize=True):
@@ -96,6 +97,7 @@ def train_model(model, train_loader, valid_loader, lr=5e-2, max_epochs=10):
 def test_model(model, test_loader):
   # tracker = CarbonTracker(epochs=1,log_dir='./',log_file_prefix='SAI')
   # tracker.epoch_start()
+  criterion = nn.BCELoss() 
   epAcc = 0
   epLoss = 0
   for x, y in test_loader: #### Fetch validation samples
