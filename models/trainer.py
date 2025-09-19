@@ -29,6 +29,7 @@ class CXRDataset(Dataset):
 from IPython.display import clear_output
 
 def train_model(model, train_loader, valid_loader, criterion, optimizer, max_epochs=10):
+  criterion = nn.BCELoss() ############ Loss function to be optimized.
   trLoss = []
   trAcc = []
   vlLoss = []
